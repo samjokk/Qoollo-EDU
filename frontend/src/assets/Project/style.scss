@@ -1,0 +1,436 @@
+$bg-color: #060606;
+$main-color: linear-gradient(319.66deg, #20E4FF 19%, #8B30FF 75.54%);
+$card-border: linear-gradient(90deg, rgba(73,73,73,1) 0%, rgba(0,0,0,0) 100%);
+$card-bg: rgba(39, 39, 47, 0.4);
+$txt-color: #f8f8ff;
+
+.i-b {
+  display: inline-block;
+}
+
+.page-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+.project-header {
+  margin-bottom: 25px;
+  &__avatar {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-bottom: -3px;
+  }
+  &__icon {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__title-input {
+    background: transparent;
+    color: $txt-color;
+    border-radius: 10px;
+    border: 2px solid #f8f8ff;
+    padding: 0 15px 0 5px;
+    margin-left: -7px !important;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.project-tags{
+  margin-bottom: 25px;
+  max-width: 1080px;
+  &__tag {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    &_deletable:hover {
+        text-decoration: line-through;
+        cursor: pointer;
+    }
+  }
+  &__search {
+    margin-bottom: 20px;
+    width: 300px;
+  }
+}
+
+.art-wave {
+  &_project {
+    background-image: url('../assets/Project/wave.png');
+    background-position-x: 1020px;
+    background-position-y: 262px;
+  }
+}
+
+.project-body {
+  width: 780px;
+  margin-right: 50px;
+}
+
+.project-description {
+  &__icon {
+    height: 20px;
+    margin-right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__input {
+    font-family: inherit;
+    background: transparent;
+    color: $txt-color;
+    border-radius: 10px;
+    border: 2px solid #f8f8ff;
+    padding: 5px 15px 5px 5px;
+    margin-left: -7px !important;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__mode {
+    font-size: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+    &_chosen {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.project-media {
+  width: 100%;
+  margin-bottom: 20px;
+  &__add, &__remove {
+    position: absolute;
+    z-index: 2;
+    background-color: $card-bg;
+    border-radius: 15px;
+    border: 2px solid $txt-color;
+    padding: 5px 5px 0 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__add {
+    right: 5px;
+    top: 5px;
+    &-txt {
+      vertical-align: middle;
+    }
+  }
+  &__remove {
+    left: 5px;
+    top: 5px;
+    &-img {
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__input-file {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 44px;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__frame {
+    width: 100%;
+    height: 439px;
+    border: 1px solid #424242;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    &:hover &-next, &:hover &-prev{
+      opacity: 1;
+    }
+    &-next, &-prev {
+      z-index: 4;
+      background-color: $card-bg;
+      padding: 10px 0;
+      border-radius: 20px;
+      position: absolute;
+      top: calc(50% - 30px);
+      transition: 0.3s;
+      opacity: 0;
+      &:hover {
+          cursor: pointer;
+        }
+      &-img {
+        width: 30px;
+        vertical-align: middle;
+      }
+    }
+
+    &-next {
+      right: 30px;
+    }
+
+    &-prev {
+      left: 30px;
+    }
+  }
+  &__picture {
+    z-index: 0;
+    height: 0%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    &_current {
+      height: 100%;
+      position: relative;
+      left: 0;
+    }
+  }
+}
+
+.project-rating {
+  width: 100%;
+  margin: 0 0 20px 0;
+  display: flex;
+  &__vote {
+    vertical-align: top;
+  }
+  &__date {
+    margin-left: auto;
+    margin-right: 0;
+    vertical-align: top;
+  }
+
+  &__likes, &__dislikes {
+    margin-right: 20px;
+    &-btn {
+      height: 24px;
+      width: 24px;
+      background-size: 100%;
+      margin-bottom: -5px;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &_disabled {
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+    position: fixed;
+    z-index: 4;
+    width: 50%;
+    left: 25%;
+    top: 10vh;
+    padding: 15px;
+    &__request {
+      margin-bottom: 30px;
+      & .comment {
+        margin-bottom: 10px;
+      }
+    }
+    &__req-btn {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    &__textarea {
+      width: calc(100% - 10px);
+      padding: 0;
+      background: $bg-color;
+      color: $txt-color;
+      padding: 5px;
+      border: 1px solid #f8f8ff;
+      border-radius: 5px;
+      overflow: auto;
+      outline: none;
+      margin: 10px 0 20px 0;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+
+      font-family: inherit;
+      font-size: inherit;
+    }
+    &__input {
+      display: block;
+      border: none;
+      margin: 10px 0 20px 0;
+      padding: 5px;
+      background-color: $bg-color;
+      border: 1px solid #424242;
+      color: $txt-color;
+      width: 200px;
+      &:focus {
+        outline: none;
+        border-bottom: solid 3px transparent;
+        background-origin: border-box;
+        background-image: $main-color;
+        box-shadow: inset 2px 1000px 1px $bg-color;
+        padding-bottom: 3px;
+      }
+    }
+    &__exit {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+      &-img {
+        width: 30px;
+      height: 30px;
+      }
+    }
+    &__user-avatar {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    &__news-card  {
+      max-width: 90%;
+      & .bg-card {
+        display: none;
+      }
+    }
+    &__body {
+      max-height: 70vh;
+      margin-top: 20px;
+      &_user-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      &_scroll {
+        overflow-y: scroll;
+        overflow-x: visible;
+        
+      }
+      &_scroll::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 25px;
+      }
+      &_scroll::-webkit-scrollbar-thumb {
+        background: -webkit-linear-gradient(319.66deg, #20e4ff 19%, #8b30ff 75.54%);
+        box-shadow: inset 2px 10000px 2px rgb(20, 20, 20, 1);
+        border: solid 2px transparent;
+        background-origin: border-box;
+        border-radius: 25px;
+      }
+    }
+  }
+  
+.project-users {
+  width: 100%;
+  display: flex;
+  &__join {
+    margin-left: auto;
+    margin-right: 0;
+    &-btn {
+      margin-top: 45px;
+      &_owner {
+        margin-top: 20px;
+      }
+    }
+  }
+  &__list {
+    &-avatars {
+      margin: 10px 0;
+      margin-right: 10px;
+    }
+    &-avatar {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    &-btn {
+      margin-top: 17px;
+      vertical-align: top;
+    }
+  }
+  &-all {
+    position: fixed;
+    z-index: 3;
+    width: 50%;
+    left: 25%;
+    top: 10%;
+    padding: 15px;
+    &__exit {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+      &-img {
+        width: 30px;
+      height: 30px;
+      }
+    }
+    &__avatar {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    &__body {
+      display: flex;
+      padding-top: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}
+
+.project-sidepannel {
+  vertical-align: top;
+  &__flex-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  &__button {
+    width: auto;
+    &_mrg {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.qoollo-link {
+    background: $main-color;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+main {
+  width: fit-content;
+  margin: 0 auto;
+  height: 100%;
+  color: $txt-color;
+  padding: 100px;
+}
